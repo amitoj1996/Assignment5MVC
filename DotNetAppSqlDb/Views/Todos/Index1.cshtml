@@ -1,0 +1,114 @@
+﻿@model IEnumerable<DotNetAppSqlDb.Models.Todo>
+
+@{
+    ViewBag.Title = "Index1";
+}
+
+<html lang="en">
+<head>
+    <style>
+        pre {
+            color: black;
+            text-align: center
+        }
+    </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Home | Simple product template</title>
+    <meta name="description" content="Page-specific description">
+    <meta name="keywords" content="Page-specific keywords">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="static/images/favicons/favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="static/images/favicons/apple-touch-icon.png">
+    <link rel="apple-touch-icon-precomposed" href="static/images/favicons/apple-touch-icon-precomposed.png">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&amp;subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="/Content/screen.min.css">
+    <link rel="stylesheet" href="/Content/custom.min.css">
+</head>
+<body>
+    <!-- $Page header--><header class="page-header">
+        <div class="page-header__inner">
+            <input class="page-header__nav-check" id="nav-check" type="checkbox">
+            <label class="page-header__nav-icon" for="nav-check"><i class="fa fa-bars"></i></label>
+            <h1 class="page-header__logo">USA FARMERS INC</h1>
+            <div class="page-header__nav">
+                <!-- $Page navigation-->
+                <nav class="page-nav">
+                    <a class="page-nav__link" href="/Static/index2.html">Home</a>
+                    <a class="page-nav__link" href="/Todos/IndexDet">FOOD IMPORT DATA</a>
+                    <a class="page-nav__link is-highlighted" href="/Todos/Index1">KEY SECTORS</a>
+                    <a class="page-nav__link" href="Maryland.html"></a>
+                    <a class="page-nav__link" href="/Static/About.html">About</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- $Promo-->
+    <section class="promo1">
+        <div class="promo__slider">
+            <!-- $Slider-->
+            <div class="slider">
+                <ul class="slider__items">
+                    <li class="slider__item" id="slide-one">
+                        <p>
+                            @Html.ActionLink("Create New", "Create")
+                        </p>
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Name)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Category)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CreatedDate)
+                                </th>
+                                <th></th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Category)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CreatedDate)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.ID }) |
+                                        @Html.ActionLink("Expand", "IndexDet1", new { name = item.Name })
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+            </div>
+            </li>
+            </ul>
+        </div>
+        </div>
+    </section>
+    <pre>
+    <h2>DDL</h2>
+    Name:- Name of product imported
+    Category:- Category of product
+    
+  </pre>
+    <!-- $Page footer-->
+    <footer class="page-footer">
+        <div class="page-footer__inner">
+            <p class="page-footer__copyright">Designed by Rahul, Pranjal, Amitoj</p>
+        </div>
+    </footer>
+</body>
+</html>
